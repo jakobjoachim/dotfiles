@@ -45,3 +45,13 @@ then
 fi
 
 ffmpeg -activation_bytes "$ACTIVATION_BYTES" -i "$SOURCE" -vn -c:a copy "$TARGET"
+
+if [[ $? -eq 0 ]]
+then
+  read -n 1 -p "Remove $SOURCE? [Y|n]" SHOULD_DELETE_SOURCE
+  if [[ -z "$SHOULD_DELETE_SOURCE" || "$SHOULD_DELETE_SOURCE" == "Y" || "$SHOULD_DELETE_SOURCE" == "y" ]] 
+  then 
+    rm $SOURCE
+  fi
+fi
+
