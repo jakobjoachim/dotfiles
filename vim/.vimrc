@@ -5,6 +5,7 @@ set showbreak=+++ 	        " Wrap-broken line prefix
 set showmatch	                " Highlight matching brace
 set spell	                " Enable spell-checking
 set visualbell	                " Use visual bell (no beeping)
+set nospell			" no spellcheck
  
 set hlsearch	                " Highlight all search results
 set smartcase	                " Enable smart-case search
@@ -22,6 +23,13 @@ set ruler	                " Show row and column ruler information
  
 set undolevels=1000	        " Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
+
+"" Lightline Plugin
+set laststatus=2                " for lightline plugin
+set noshowmode			" lightline already shows this information
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 "" Load Vim Plugins
 so ~/.vim/plugins.vim
