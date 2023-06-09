@@ -1,3 +1,12 @@
 .directory
 vim/.vim/plugged
 .idea
+.netrwhist
+npm-debug.log
+config/nvim/spell
+config/nvim/shada
+vim/vim.symlink/spell/
+vim/vim.symlink/plugged/
+Brewfile.lock.json
+lazy-lock.json
+config/kitty/kitty-overrides.conf
