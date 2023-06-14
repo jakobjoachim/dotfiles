@@ -160,47 +160,6 @@ require("lazy").setup({
       "williamboman/mason-lspconfig.nvim",
     },
   },
-  -- neovim completion
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "zbirenbaum/copilot-cmp",
-      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-    },
-  },
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    event = "InsertEnter",
-    opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = "<Tab>",
-          close = "<Esc>",
-          next = "<C-J>",
-          prev = "<C-K>",
-          select = "<CR>",
-          dismiss = "<C-X>",
-        },
-      },
-      panel = {
-        enabled = false,
-      },
-    },
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
   -- treesitter enables an AST-like understanding of files
   {
     "axkirillov/hbac.nvim",
