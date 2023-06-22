@@ -35,33 +35,6 @@ get_linkables() {
     find -H "$DOTFILES" -maxdepth 3 -name '*.symlink'
 }
 
-backup() {
-    BACKUP_DIR=$HOME/dotfiles-backup
-
-    echo "Creating backup directory at $BACKUP_DIR"
-    mkdir -p "$BACKUP_DIR"
-
-    for file in $(get_linkables); do
-        filename=".$(basename "$file" '.symlink')"
-        target="$HOME/$filename"
-        if [ -f "$target" ]; then
-            echo "backing up $filename"
-            cp "$target" "$BACKUP_DIR"
-        else
-            warning "$filename does not exist at this location or is a symlink"
-        fi
-    done
-
-    for filename in "$HOME/.config/nvim" "$HOME/.vim" "$HOME/.vimrc"; do
-        if [ ! -L "$filename" ]; then
-            echo "backing up $filename"
-            cp -rf "$filename" "$BACKUP_DIR"
-        else
-            warning "$filename does not exist at this location or is a symlink"
-        fi
-    done
-}
-
 
 setup_symlinks() {
     title "Creating symlinks"
@@ -146,12 +119,6 @@ setup_homebrew() {
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 }
 
-fetch_catppuccin_theme() {
-    for palette in frappe latte macchiato mocha; do
-        curl -o "$DOTFILES/config/kitty/themes/catppuccin-$palette.conf" "https://raw.githubusercontent.com/catppuccin/kitty/main/$palette.conf"
-    done
-}
-
 setup_shell() {
     title "Configuring shell"
 
@@ -165,16 +132,6 @@ setup_shell() {
         chsh -s "$zsh_path"
         info "default shell changed to $zsh_path"
     fi
-}
-
-function setup_terminfo() {
-    title "Configuring terminfo"
-
-    info "adding tmux.terminfo"
-    tic -x "$DOTFILES/resources/tmux.terminfo"
-
-    info "adding xterm-256color-italic.terminfo"
-    tic -x "$DOTFILES/resources/xterm-256color-italic.terminfo"
 }
 
 setup_macos() {
@@ -211,15 +168,6 @@ setup_macos() {
         echo "Show Status bar in Finder"
         defaults write com.apple.finder ShowStatusBar -bool true
 
-        echo "Disable press-and-hold for keys in favor of key repeat"
-        defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-        echo "Set a blazingly fast keyboard repeat rate"
-        defaults write NSGlobalDomain KeyRepeat -int 1
-
-        echo "Set a shorter Delay until key repeat"
-        defaults write NSGlobalDomain InitialKeyRepeat -int 15
-
         echo "Enable tap to click (Trackpad)"
         defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
@@ -234,10 +182,12 @@ setup_macos() {
     fi
 }
 
+setup_java() {
+  title "Installing sdkman"
+  curl -s "https://get.sdkman.io?rcupdate=false" | bash
+}
+
 case "$1" in
-    backup)
-        backup
-        ;;
     link)
         setup_symlinks
         ;;
@@ -256,19 +206,19 @@ case "$1" in
     macos)
         setup_macos
         ;;
-    catppuccin)
-        fetch_catppuccin_theme
+    java)
+        setup_java
         ;;
     all)
         setup_symlinks
-        setup_terminfo
         setup_homebrew
         setup_shell
+        setup_java
         setup_git
         setup_macos
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|macos|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|java|git|macos|all}\n"
         exit 1
         ;;
 esac

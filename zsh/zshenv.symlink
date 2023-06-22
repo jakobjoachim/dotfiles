@@ -5,7 +5,6 @@
 export DOTFILES="$(dirname "$(dirname "$(readlink "${(%):-%N}")")")"
 export CACHEDIR="$HOME/.local/share"
 export VIM_TMP="$HOME/.vim-tmp"
-export TMPDIR=/tmp/
 
 [[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
 [[ -d "$VIM_TMP" ]] || mkdir -p "$VIM_TMP"
@@ -14,11 +13,9 @@ export TMPDIR=/tmp/
 
 fpath=(
     $DOTFILES/zsh/functions
-    /usr/local/share/zsh/site-functions
     $fpath
 )
 
 typeset -aU path
 
 export EDITOR='nvim'
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home

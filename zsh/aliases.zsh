@@ -16,3 +16,6 @@ alias ls="exa"
 alias ll="exa --icons --git --long"
 alias l="exa --icons --git --all --long"
 alias ld="exa --icons --git --all --long --only-dirs"
+
+# reload zsh config
+alias reload!='RELOAD=1 source ~/.zshrc'
