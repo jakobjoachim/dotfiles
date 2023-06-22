@@ -29,9 +29,10 @@ end
 
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "1password/tap"
 
 # packages
-brew "autojump" # autojump to often used directories
+cask "1password-cli"
 brew "bat" # better cat
 brew "cloc" # lines of code counter
 brew "entr" # file watcher / command runner
