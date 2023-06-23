@@ -58,8 +58,6 @@ brew "neovim" # A better vim
 brew "python" # python (latst)
 brew "ripgrep" # very fast file searcher
 brew "shellcheck" # diagnostics for shell sripts
-brew "stow" # dotfile manager
-brew "tmux" # terminal multiplexer
 brew "tree" # pretty-print directory contents
 brew "vim" # Vim (latest)
 brew "watch" # execute a command every so often
@@ -73,6 +71,7 @@ brew "zsh" # zsh (latest)
 tap "derailed/k9s" # k9s
 tap "kudobuilder/tap" # kuttl
 
+brew "kubectl"
 brew "helm"
 brew "k9s"
 brew "kind"

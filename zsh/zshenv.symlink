@@ -6,6 +6,9 @@ export DOTFILES="$(dirname "$(dirname "$(readlink "${(%):-%N}")")")"
 export CACHEDIR="$HOME/.local/share"
 export VIM_TMP="$HOME/.vim-tmp"
 
+[[ -d ~/.kube/configs ]] || mkdir -p /.kube/configs
+export KUBECONFIG=$(for file in ~/.kube/configs/*; do printf '%s:' "$(realpath "$file")"; done | sed 's/:$//')
+
 [[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
 [[ -d "$VIM_TMP" ]] || mkdir -p "$VIM_TMP"
 

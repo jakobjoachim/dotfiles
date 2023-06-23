@@ -17,3 +17,7 @@ To install a temurin jdk run:
 
 Node is managed by [fast node manager](https://github.com/Schniz/fnm)
 There is no configuration needed. If you change into a dir fnm automatically pulls the correct version
+
+## Kubectl
+
+Kubectl is automatically installed using brew and is configuered to read all kubeconfigs in `~/.kube/configs/`
