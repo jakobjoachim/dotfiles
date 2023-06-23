@@ -14,6 +14,9 @@ if OS.mac?
     brew "yabai"
     brew "skhd"
 
+    # raycast
+    cask "raycast"
+
     # Fonts
     cask "font-fira-code"
     cask "font-jetbrains-mono"
