@@ -191,9 +191,6 @@ case "$1" in
     link)
         setup_symlinks
         ;;
-    git)
-        setup_git
-        ;;
     homebrew)
         setup_homebrew
         ;;
@@ -214,11 +211,16 @@ case "$1" in
         setup_homebrew
         setup_shell
         setup_java
-        setup_git
         setup_macos
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|java|git|macos|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|java|macos|all}\n"
+        echo -e $"${COLOR_BLUE}link${COLOR_NONE}: will create symlinks for all folders inside config to ~/.config. Also create symlinks for all *.symlink files in this dir and subdirs."
+        echo -e $"${COLOR_BLUE}homebrew${COLOR_NONE}: will download homebrew if not already installed and install all packages that i use"
+        echo -e $"${COLOR_BLUE}shell${COLOR_NONE}: sets up zsh with a few plugins and pulls all *.alias files in these folders"
+        echo -e $"${COLOR_BLUE}java${COLOR_NONE}: installs sdkman to manage different java versions"
+        echo -e $"${COLOR_BLUE}macos${COLOR_NONE}: some usefull macos settings"
+        echo -e $"${COLOR_BLUE}all${COLOR_NONE}: everything above"
         exit 1
         ;;
 esac

@@ -2,6 +2,11 @@
 
 Heavily influenced by Nick Nisis [dotfiles](https://github.com/nicknisi/dotfiles)
 
+## Installation
+
+download / clone and run `./install.sh`
+it will tell you all the options you have.
+
 ## Java
 
 I manage Java / Maven using [sdkman](https://sdkman.io/)
