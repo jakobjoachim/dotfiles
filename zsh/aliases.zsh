@@ -18,7 +18,8 @@ alias l="exa --icons --git --all --long"
 alias ld="exa --icons --git --all --long --only-dirs"
 
 # git shortcuts
-alias gitrmo="git branch -vv | grep ': gone]'| grep -v \"\*\" | awk '{ print $1; }' | xargs -r git branch -D"
+# not quite working yet
+# alias gitrmo="git branch -vv | grep ': gone]'| grep -v '\*' | awk '{ print $1; }' | xargs -r git branch -D"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'

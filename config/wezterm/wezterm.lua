@@ -11,6 +11,7 @@ local config = {
   }),
   font_size = 15.0,
   native_macos_fullscreen_mode = true,
+  window_close_confirmation = 'NeverPrompt',
   keys = {
     {
       key = "n",
