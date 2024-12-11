@@ -12,10 +12,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # better ls
-alias ls="exa"
-alias ll="exa --icons --git --long"
-alias l="exa --icons --git --all --long"
-alias ld="exa --icons --git --all --long --only-dirs"
+alias ls="eza"
+alias ll="eza --icons --git --long"
+alias l="eza --icons --git --all --long"
+alias ld="eza --icons --git --all --long --only-dirs"
 
 # git shortcuts
 # not quite working yet
