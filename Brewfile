@@ -38,6 +38,7 @@ tap "1password/tap"
 cask "1password-cli"
 brew "bat" # better cat
 brew "cloc" # lines of code counter
+brew "deno"
 brew "entr" # file watcher / command runner
 brew "eza" # ls alternative
 brew "fd" # find alternative
@@ -69,12 +70,9 @@ brew "zsh" # zsh (latest)
 
 # dev ops packages
 tap "derailed/k9s" # k9s
-tap "kudobuilder/tap" # kuttl
 
 brew "kubectl"
 brew "helm"
 brew "k9s"
-brew "kind"
-brew "kuttl-cli"
 brew "warrensbox/tap/tfswitch"
 brew "rclone"
