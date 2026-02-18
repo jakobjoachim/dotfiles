@@ -74,5 +74,5 @@ tap "derailed/k9s" # k9s
 brew "kubectl"
 brew "helm"
 brew "k9s"
-brew "warrensbox/tap/tfswitch"
+brew "tenv"
 brew "rclone"

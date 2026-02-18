@@ -4,6 +4,7 @@ local config = {
   color_scheme = "ForestBlue",
   enable_tab_bar = false,
   window_decorations = "RESIZE",
+  window_background_opacity = 1.0,
   font = wezterm.font({
     family = "Overpass Mono",
     weight = "Bold",
@@ -11,7 +12,7 @@ local config = {
   }),
   font_size = 15.0,
   native_macos_fullscreen_mode = true,
-  window_close_confirmation = 'NeverPrompt',
+  window_close_confirmation = "NeverPrompt",
   keys = {
     {
       key = "n",

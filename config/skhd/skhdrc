@@ -1,4 +1,1 @@
-shift + cmd - j : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+shift + alt - space : yabai -m window --toggle float && yabai -m window --grid 1:1:0:0:1:1
