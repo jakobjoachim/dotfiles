@@ -13,7 +13,7 @@ This repository captures Jakob Joachim's personal macOS/Linux dotfiles plus supp
 
 ## Prerequisites & Common Tooling
 - Homebrew is required for the bootstrap script; install section auto-runs on macOS if missing.
-- `fnm`, `sdkman`, `bun`, and `zoxide` are automatically initialized inside `zsh/zshrc.symlink` when available.
+- `volta`, `sdkman`, `bun`, and `zoxide` are automatically initialized inside `zsh/zshrc.symlink` when available.
 - `shellcheck`, `ripgrep`, `fzf`, `gh`, and `git-delta` are part of the Brewfile baseline; rely on those versions for linting and diffing.
 - Node tooling in `config/opencode` is bun-first (`bun.lock`) but also compatible with npm/yarn if bun unavailable.
 - `nvim` configuration assumes `lazy.nvim` plus Nerd Font icons; `vim.g.have_nerd_font` is set to `true` in `config/nvim/init.lua`.
@@ -136,7 +136,7 @@ This repository captures Jakob Joachim's personal macOS/Linux dotfiles plus supp
 ## Environmental Assumptions & Secrets
 - User-specific overrides live in files ending with `.local` (`~/.gitconfig-local`, `~/.zshrc.local`, `~/.localrc`) and must remain untracked.
 - kubeconfigs live under `~/.kube/configs/` (documented in README); do not hardcode cluster names here.
-- `PATH` is already extended for bun (`$HOME/.bun`), opencode (`~/.opencode/bin`), and fnm-managed Node; rely on those rather than absolute paths when possible.
+- `PATH` is already extended for bun (`$HOME/.bun`), opencode (`~/.opencode/bin`), and volta-managed Node; rely on those rather than absolute paths when possible.
 
 ## Collaboration Tips
 - Keep commits scoped to one tool (e.g., "update wezterm config" vs bundling shell changes).

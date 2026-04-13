@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+[[ $# -eq 5 || $# -eq 7 ]] || { echo "Expected 5 (pod) or 7 (container) arguments but got $# '$@'"; exit 1; }
+
+if [ -t 1 ]; then
+    # https://github.com/derailed/k9s/issues/1852#issuecomment-2004674600
+    kubectl logs "$@" | grep -E '^{.*}$' | jq -r '.["@timestamp"] + " " + .["log.level"] + " " + (.["process.pid"] | tostring) + " --- [" + .["process.thread.name"] + "] " + .["log.logger"] + " : " + .["message"]' | less -R -K
+else
+    kubectl logs "$@" | grep -E '^{.*}$' | jq -r '.["@timestamp"] + " " + .["log.level"] + " " + (.["process.pid"] | tostring) + " --- [" + .["process.thread.name"] + "] " + .["log.logger"] + " : " + .["message"]'
+fi
+

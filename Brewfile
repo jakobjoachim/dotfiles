@@ -2,7 +2,6 @@
 
 if OS.mac?
     # taps
-    tap "homebrew/cask"
     tap "homebrew/cask-fonts"
     tap "koekeishiya/formulae"
     
@@ -31,7 +30,6 @@ elsif OS.linux?
 end
 
 tap "homebrew/bundle"
-tap "homebrew/core"
 tap "1password/tap"
 
 # packages
@@ -42,7 +40,7 @@ brew "deno"
 brew "entr" # file watcher / command runner
 brew "eza" # ls alternative
 brew "fd" # find alternative
-brew "fnm" # Fast Node version manager
+brew "volta" # JavaScript tool manager
 brew "fzf" # Fuzzy file searcher, used in scripts and in vim
 brew "gh" # GitHub CLI
 brew "git" # Git version control (latest version)

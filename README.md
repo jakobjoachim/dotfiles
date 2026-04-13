@@ -15,8 +15,8 @@ To install a temurin jdk run:
 
 ## Nodejs
 
-Node is managed by [fast node manager](https://github.com/Schniz/fnm)
-There is no configuration needed. If you change into a dir fnm automatically pulls the correct version
+Node is managed by [Volta](https://volta.sh/)
+Use `volta install node@lts` to set your default Node version and `volta pin node@x.y.z` per project when needed.
 
 ## Kubectl
 

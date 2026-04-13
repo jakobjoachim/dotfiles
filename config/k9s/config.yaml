@@ -1,0 +1,33 @@
+plugins:
+  decode_json_container_logs:
+    shortCut: Ctrl-L
+    confirm: false
+    description: Decode json logs
+    scopes:
+      - containers
+    command: decode-json-logs
+    background: false
+    args:
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $POD
+      - --container
+      - $NAME
+
+  decode_json_pod_logs:
+    shortCut: Ctrl-L
+    confirm: false
+    description: Decode json logs
+    scopes:
+      - pods
+    command: decode-json-logs
+    background: false
+    args:
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $NAME
+
