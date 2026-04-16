@@ -9,9 +9,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-[[ -d ~/.kube/configs ]] || mkdir -p /.kube/configs
-export KUBECONFIG=$(for file in ~/.kube/configs/*; do printf '%s:' "$(realpath "$file")"; done | sed 's/:$//')
-
 [[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
 [[ -d "$VIM_TMP" ]] || mkdir -p "$VIM_TMP"
 

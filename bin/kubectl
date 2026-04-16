@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+local wrapper_path
+local helper_path
+
+wrapper_path=$(whence -p "$0" 2>/dev/null || printf '%s' "$0")
+wrapper_path=$(realpath "$wrapper_path" 2>/dev/null || printf '%s' "$wrapper_path")
+helper_path="${wrapper_path:h}/_kubeconfig_wrapper.zsh"
+
+if ! source "$helper_path"; then
+    echo "kubectl: failed to load kubeconfig wrapper helper" >&2
+    exit 1
+fi
+
+_kubeconfig_wrapper_run kubectl "$wrapper_path" "$@"

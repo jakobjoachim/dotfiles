@@ -92,6 +92,12 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
+# 1Password CLI completions
+if (( $+commands[op] )); then
+  eval "$(op completion zsh)"
+  compdef _op op
+fi
+
 
 ########################################################
 # Plugin setup
