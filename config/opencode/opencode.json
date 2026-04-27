@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "ollama/qwen3",
   "provider": {
     "ollama": {
       "models": {
@@ -15,5 +14,26 @@
         "baseURL": "http://127.0.0.1:11434/v1"
       }
     }
+  },
+  "mcp": {
+    "gitlab-mr": {
+      "type": "local",
+      "command": [
+        "sh",
+        "-c",
+        "GITLAB_TOKEN=\"$(op read 'op://dev/gitlab-api-key/password')\" npx -y @jakobjoachim/gitlab-mr-mcp-client"
+      ]
+    },
+    "figma-desktop": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp",
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": true
+    }
+
   }
 }
