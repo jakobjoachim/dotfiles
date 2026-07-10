@@ -143,6 +143,54 @@ _kubeconfigs_run_from_session() {
     "$command_path" "$@"
 }
 
+_kubeconfigs_session_has_context() {
+    local command_name="$1"
+    local context_name="$2"
+    local wrapper_path="$DOTFILES/bin/${command_name}"
+    local command_path
+    local config_file
+
+    [[ -n "$context_name" ]] || return 1
+
+    wrapper_path=$(realpath "$wrapper_path" 2>/dev/null || printf '%s' "$wrapper_path")
+    command_path=$(_kubeconfig_wrapper_resolve_binary "$command_name" "$wrapper_path")
+    [[ -n "$command_path" ]] || return 1
+
+    for config_file in "$KUBECONFIG_SESSION_DIR"/*.yaml(N); do
+        if _kubeconfig_wrapper_file_has_context "$command_path" "$config_file" "$context_name"; then
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+_kubeconfigs_should_run_wrapper() {
+    local command_name="$1"
+    shift
+
+    local context_name
+
+    if [[ "$command_name" == "k9s" ]]; then
+        return 0
+    fi
+
+    [[ "$command_name" == "kubectl" ]] || return 1
+
+    if _kubeconfig_wrapper_requires_all_contexts "$command_name" "$@"; then
+        return 0
+    fi
+
+    context_name=$(_kubeconfig_wrapper_context_arg "$@" 2>/dev/null || true)
+    if [[ -n "$context_name" ]] \
+        && ! _kubeconfigs_session_has_context "$command_name" "$context_name"
+    then
+        return 0
+    fi
+
+    return 1
+}
+
 _kubeconfigs_run() {
     local command_name="$1"
     local ret
@@ -159,7 +207,10 @@ _kubeconfigs_run() {
         return 1
     fi
 
-    if [[ -n "$KUBECONFIG_SESSION_READY" ]] && _kubeconfigs_session_has_files; then
+    if [[ -n "$KUBECONFIG_SESSION_READY" ]] \
+        && _kubeconfigs_session_has_files \
+        && ! _kubeconfigs_should_run_wrapper "$command_name" "$@"
+    then
         _kubeconfigs_run_from_session "$command_name" "$@"
         ret=$?
         if _kubeconfigs_session_has_files; then
