@@ -5,7 +5,7 @@ This repository captures Jakob Joachim's personal macOS/Linux dotfiles plus supp
 ## Repository Map
 - `install.sh`: orchestrates linking, Homebrew setup, shell defaults, sdkman install, and macOS defaults.
 - `bin/`: small helper executables (`killport`, `extract`, `aax_to_mp4`) invoked directly from PATH.
-- `config/`: items mirrored into `~/.config` (git, nvim, opencode, sdkman, skhd, wezterm, yabai); dot-prefixed entries such as `.aws` link directly into `$HOME`.
+- `config/`: items mirrored into `~/.config` (git, nvim, opencode, sdkman, skhd, wezterm, yabai); dot-prefixed files link directly into `$HOME`, while dot-prefixed directories such as `.aws` create real `$HOME` directories with their direct children symlinked inside.
 - `zsh/`: login shell bootstrap (`zshrc.symlink`, aliases, functions, prompt) plus user specific symlinks.
 - `Brewfile`: declarative list of brew/cask taps and packages; macOS-focused but guards for Linux.
 - `.editorconfig`: single source of truth for indentation (2 spaces default, 4 spaces for `*.vim`).

@@ -34,6 +34,7 @@ tap "1password/tap"
 
 # packages
 cask "1password-cli"
+brew "awscli" # AWS CLI, used for SSO login
 brew "bat" # better cat
 brew "cloc" # lines of code counter
 brew "deno"

@@ -35,18 +35,51 @@ get_linkables() {
     find -H "$DOTFILES" -maxdepth 3 -name '*.symlink'
 }
 
+link_path() {
+    local source="$1"
+    local target="$2"
+
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        info "~${target#"$HOME"} already exists... Skipping."
+    else
+        info "Creating symlink for $source"
+        ln -s "$source" "$target"
+    fi
+}
+
+link_home_config_dir_contents() {
+    local config_dir="$1"
+    local config_name="$2"
+    local target_dir="$HOME/$config_name"
+    local child
+
+    if [ -L "$target_dir" ]; then
+        warning "~${target_dir#"$HOME"} is a symlink. Remove it and rerun ./install.sh link to manage nested links."
+        return
+    fi
+
+    if [ -e "$target_dir" ] && [ ! -d "$target_dir" ]; then
+        warning "~${target_dir#"$HOME"} exists but is not a directory... Skipping."
+        return
+    fi
+
+    if [ ! -d "$target_dir" ]; then
+        info "Creating ~${target_dir#"$HOME"}"
+        mkdir -p "$target_dir"
+    fi
+
+    while IFS= read -r child; do
+        link_path "$child" "$target_dir/$(basename "$child")"
+    done < <(find "$config_dir" -mindepth 1 -maxdepth 1 2>/dev/null)
+}
+
 
 setup_symlinks() {
     title "Creating symlinks"
 
     for file in $(get_linkables) ; do
         target="$HOME/.$(basename "$file" '.symlink')"
-        if [ -e "$target" ]; then
-            info "~${target#"$HOME"} already exists... Skipping."
-        else
-            info "Creating symlink for $file"
-            ln -s "$file" "$target"
-        fi
+        link_path "$file" "$target"
     done
 
     echo -e
@@ -58,17 +91,12 @@ setup_symlinks() {
 
     while IFS= read -r config; do
         config_name="$(basename "$config")"
-        if [[ "$config_name" == .* ]]; then
-            target="$HOME/$config_name"
+        if [[ "$config_name" == .* && -d "$config" ]]; then
+            link_home_config_dir_contents "$config" "$config_name"
+        elif [[ "$config_name" == .* ]]; then
+            link_path "$config" "$HOME/$config_name"
         else
-            target="$HOME/.config/$config_name"
-        fi
-
-        if [ -e "$target" ]; then
-            info "~${target#"$HOME"} already exists... Skipping."
-        else
-            info "Creating symlink for $config"
-            ln -s "$config" "$target"
+            link_path "$config" "$HOME/.config/$config_name"
         fi
     done < <(find "$DOTFILES/config" -mindepth 1 -maxdepth 1 2>/dev/null)
 }
@@ -220,7 +248,7 @@ case "$1" in
         ;;
     *)
         echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|java|macos|all}\n"
-        echo -e $"${COLOR_BLUE}link${COLOR_NONE}: will create symlinks for config entries to ~/.config, except dot-prefixed entries link to ~. Also create symlinks for all *.symlink files in this dir and subdirs."
+        echo -e $"${COLOR_BLUE}link${COLOR_NONE}: will create symlinks for config entries to ~/.config, except dot-prefixed files link to ~ and dot-prefixed directories create real home directories with their direct children symlinked inside. Also create symlinks for all *.symlink files in this dir and subdirs."
         echo -e $"${COLOR_BLUE}homebrew${COLOR_NONE}: will download homebrew if not already installed and install all packages that i use"
         echo -e $"${COLOR_BLUE}shell${COLOR_NONE}: sets up zsh with a few plugins and pulls all *.alias files in these folders"
         echo -e $"${COLOR_BLUE}java${COLOR_NONE}: installs sdkman to manage different java versions"
