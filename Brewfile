@@ -54,14 +54,15 @@ brew "jq" # work with JSON files in shell scripts
 brew "lazygit" # a better git UI
 brew "neofetch" # pretty system info
 brew "neovim" # A better vim
-brew "python" # python (latst)
+brew "python" # python (latest)
 brew "ripgrep" # very fast file searcher
-brew "shellcheck" # diagnostics for shell sripts
+brew "shellcheck" # diagnostics for shell scripts
 brew "tree" # pretty-print directory contents
 brew "vim" # Vim (latest)
 brew "watch" # execute a command every so often
 brew "wdiff" # word differences in text files
 brew "wget" # internet file retriever
+brew "yq" # work with YAML files in shell scripts
 brew "z" # switch between most used directories
 brew "zoxide" # switch between most used directories
 brew "zsh" # zsh (latest)

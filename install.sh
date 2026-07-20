@@ -42,7 +42,7 @@ setup_symlinks() {
     for file in $(get_linkables) ; do
         target="$HOME/.$(basename "$file" '.symlink')"
         if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
+            info "~${target#"$HOME"} already exists... Skipping."
         else
             info "Creating symlink for $file"
             ln -s "$file" "$target"
@@ -50,22 +50,27 @@ setup_symlinks() {
     done
 
     echo -e
-    info "installing to ~/.config"
+    info "Installing config links"
     if [ ! -d "$HOME/.config" ]; then
         info "Creating ~/.config"
         mkdir -p "$HOME/.config"
     fi
 
-    config_files=$(find "$DOTFILES/config" -maxdepth 1 2>/dev/null)
-    for config in $config_files; do
-        target="$HOME/.config/$(basename "$config")"
+    while IFS= read -r config; do
+        config_name="$(basename "$config")"
+        if [[ "$config_name" == .* ]]; then
+            target="$HOME/$config_name"
+        else
+            target="$HOME/.config/$config_name"
+        fi
+
         if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
+            info "~${target#"$HOME"} already exists... Skipping."
         else
             info "Creating symlink for $config"
             ln -s "$config" "$target"
         fi
-    done
+    done < <(find "$DOTFILES/config" -mindepth 1 -maxdepth 1 2>/dev/null)
 }
 
 setup_git() {
@@ -215,7 +220,7 @@ case "$1" in
         ;;
     *)
         echo -e $"\nUsage: $(basename "$0") {link|homebrew|shell|java|macos|all}\n"
-        echo -e $"${COLOR_BLUE}link${COLOR_NONE}: will create symlinks for all folders inside config to ~/.config. Also create symlinks for all *.symlink files in this dir and subdirs."
+        echo -e $"${COLOR_BLUE}link${COLOR_NONE}: will create symlinks for config entries to ~/.config, except dot-prefixed entries link to ~. Also create symlinks for all *.symlink files in this dir and subdirs."
         echo -e $"${COLOR_BLUE}homebrew${COLOR_NONE}: will download homebrew if not already installed and install all packages that i use"
         echo -e $"${COLOR_BLUE}shell${COLOR_NONE}: sets up zsh with a few plugins and pulls all *.alias files in these folders"
         echo -e $"${COLOR_BLUE}java${COLOR_NONE}: installs sdkman to manage different java versions"
