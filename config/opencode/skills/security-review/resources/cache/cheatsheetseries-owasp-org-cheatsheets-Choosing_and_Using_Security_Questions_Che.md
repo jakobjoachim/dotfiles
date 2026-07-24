@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Choosing and Using Security Questions - OWASP Cheat Sheet Series
+
+ Answers Comparing Answers Updating Answers Multiple Security Questions Choosing and Using Security Questions Cheat Sheet &para; Introduction &para; WARNING: Security questions are no longer recognized as an acceptable authentication factor per NIST SP 800-63 . Account recovery is just an alternate way to authenticate so it should be no weaker than regular authentication. The accompanying Security blog update includes an infographic on the issues identified with security questions. Please Note: While there are no acceptable uses of security questions in secure software, this cheat sheet provides guidance on how to choose strong security questions for legacy purposes. ara; Any security questions presented to users to reset forgotten passwords must meet the following characteristics: Characteristic Explanation Memorable The user must be able to recall the answer to the question, potentially years after creating their account. Confidential The answer to the question must be hard for an attacker to obtain. Types of Security Questions &para; Security questions fall into two main types. With user defined security questions, the user must choose a question from a list, and provide an answer to the question. System defined security questions are based on information that is already known about the user. This approach avoids having to ask the user to provide specific security questions and answers, and also prevents them from being able to choose weak details.

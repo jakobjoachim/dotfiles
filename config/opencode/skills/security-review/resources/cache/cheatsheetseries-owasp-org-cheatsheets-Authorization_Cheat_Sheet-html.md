@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Authorization - OWASP Cheat Sheet Series
+
+Authorization Logic References ABAC General Least Privilege RBAC ReBAC Authorization Cheat Sheet &para; Introduction &para; Authorization may be defined as "the process of verifying that a requested action or service is approved for a specific entity" ( NIST ). Authorization is distinct from authentication which is the process of verifying an entity's identity. A user who has been authenticated (perhaps by providing a username and password) is often not authorized to access every resource and perform every action that is technically possible through a system. For example, a web app may have both regular users and admins, with the admins being able to perform actions the average user is not privileged to perform, even though they have been authenticated. Additionally, authentication is not always required for accessing resources; an unauthenticated user may be authorized to access certain public resources, such as an image or login page, or even an entire web app. The objective of this cheat sheet is to assist developers in implementing authorization logic that is robust, appropriate to the app's business context, maintainable, and scalable. Flaws related to authorization logic are a notable concern for web apps. Broken Access Control was ranked as the most concerning web security vulnerability in OWASP's 2021 Top 10 and asserted to have a "High" likelihood of exploit by MITRE's CWE program . 10 , Access Control was among the more common

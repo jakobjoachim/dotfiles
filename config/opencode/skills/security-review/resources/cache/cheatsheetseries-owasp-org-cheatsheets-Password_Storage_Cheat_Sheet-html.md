@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Password Storage - OWASP Cheat Sheet Series
+
+Passwords with bcrypt PBKDF2 Parallel PBKDF2 PBKDF2 Pre-Hashing Upgrading Legacy Hashes International Characters Password Storage Cheat Sheet &para; Introduction &para; This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are stored, they must be protected from an attacker even if the application or database is compromised. Instead, they must be protected using strong, slow hashing algorithms such as Argon2id, bcrypt, or PBKDF2. A unique salt must be added to each password to prevent attackers from using precomputed lookup tables like rainbow tables. Fast hashing algorithms such as SHA‑256 are not suitable for password storage because they allow attackers to perform large numbers of guesses quickly. Using slow, memory‑hard algorithms makes brute‑force attacks significantly more difficult, expensive, and time‑consuming. If Argon2id is not available, use scrypt with a minimum CPU/memory cost parameter of (2^17), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1. For legacy systems using bcrypt , use a work factor of 10 or more and with a password limit of 72 bytes. Background &para; Hashing vs Encryption &para; Hashing and encryption can keep sensitive data safe, but in almost all circumstances, Passwords should be securely hashed using modern, adaptive hashing algorithms (e. , Argon2id, bcrypt, or PBKDF2), rather than encrypted or stored in plaintext.

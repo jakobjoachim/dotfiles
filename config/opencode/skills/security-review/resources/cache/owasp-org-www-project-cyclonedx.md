@@ -1,0 +1,8 @@
+---
+source: https://owasp.org/www-project-cyclonedx/
+fetched: 2026-07-24
+---
+
+# OWASP CycloneDX (ECMA-424) | OWASP Foundation
+
+ Store Donate Join This website uses cookies to analyze our traffic and only share that information with our analytics partners. Strategic direction of the specification is managed by the CycloneDX Core Working Group , is backed by the OWASP Foundation , and is supported by the global information security community. tandard (SCVS) Open Web Application Security Project (OWASP) CycloneDX Unplugged CycloneDX Unplugged is a community showcase of commercial and open source projects that support or interoperate with the OWASP CycloneDX Software Bill of Materials (SBOM) standard. A focus of the playlist is on the creation, consumption, analysis, conversion, and distribution of CycloneDX along with the tools and processes that serve to better operationalize SBOMs for greater transparency and cybersecurity risk reduction. CycloneDX Unplugged honors OWASP’s mission of helping improve software security in a vendor neutral way. Watch Star The OWASP &reg; Foundation works to improve the security of software through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences. corporate supporter HOME PROJECTS CHAPTERS EVENTS ABOUT PRIVACY SITEMAP CONTACT OWASP, the OWASP logo, and Global AppSec are registered trademarks and AppSec Days, AppSec California, AppSec Cali, SnowFROC, and LASCON are trademarks of the OWASP Foundation, Inc. OWASP does not endorse or recommend commercial products or services, allowing our community to remain vendor neutral with the collective

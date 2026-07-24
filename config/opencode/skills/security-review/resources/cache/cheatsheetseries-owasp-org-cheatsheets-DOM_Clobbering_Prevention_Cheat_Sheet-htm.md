@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/DOM_Clobbering_Prevention_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# DOM Clobbering Prevention - OWASP Cheat Sheet Series
+
+e of code-reuse, HTML-only injection attack, where attackers confuse a web application by injecting HTML elements whose id or name attribute matches the name of security-sensitive variables or browser APIs, such as variables used for fetching remote content (e. In these scenarios, attackers may still inject non-script HTML markups into webpages and transform the initially secure markup into executable code, achieving Cross-Site Scripting (XSS) . Developers unaware of such behavior may use the content of window/document attributes for sensitive operations, such as URLs for fetching remote content, and attackers can exploit it by injecting markups with colliding names. ckers are able to inject (non-script) HTML markup in the DOM tree, it can change the value of a variable that the web application relies on due to named property accesses, causing it to malfunction, expose sensitive data, or execute attacker-controlled scripts. Example Attack 1 &para; let redirectTo = window . assign ( redirectTo ); The attacker can: inject the markup <a id=redirectTo href='javascript:alert(1)' and obtain XSS. Example Attack 2 &para; var script = document . appendChild ( s ); The attacker can inject the markup <a id=config><a id=config name=url href='malicious. dynamically checking if named properties of the input mark has collisions with the existing DOM tree, and if that is the case, then remove named properties of the input markup. setHTML ( input , { sanitizer : sanitizerInstance }); #2: Content-Security

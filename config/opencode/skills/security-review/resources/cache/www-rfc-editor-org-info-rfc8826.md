@@ -1,0 +1,8 @@
+---
+source: https://www.rfc-editor.org/info/rfc8826
+fetched: 2026-07-24
+---
+
+# RFC 8826: Security Considerations for WebRTC | RFC Editor
+
+RFC 8826: Security Considerations for WebRTC | RFC Editor Your browser has JavaScript disabled. r reading RFCs Browse all RFCs Download RFCs Errata in RFCs FAQ For Authors How to write an RFC Independent Submissions Style Guide RFC Publication Process Document Queue About Us About RFC Editor Reports Privacy Statement Contact The RFC Series What is an RFC? rite an RFC Independent Submissions Style Guide RFC Publication Process Document Queue About Us About RFC Editor Reports Privacy Statement Contact Search Your preferences Theme RFC Info pages Home RFC 8826 Info RFC   8826 : Security Considerations for WebRTC E. Rescorla Proposed Standard Abstract WebRTC is a protocol suite for use with real-time applications that can be deployed in browsers -- "real-time communication on the Web". This document defines the WebRTC threat model and analyzes the security threats of WebRTC in that model. ¶ Copyright Notice Copyright (c) 2021 IETF Trust and the persons identified as the document authors. Introduction The Real-Time Communications on the Web (RTCWEB) Working Group has standardized protocols for real-time communications between Web browsers, generally called "WebRTC" [ RFC8825 ] . The major use cases for WebRTC technology are real-time audio and/or video calls, Web conferencing, and direct data transfer. , SIP-based [ RFC3261 ] soft phones), WebRTC communications are directly controlled by some Web server. | Browser |<---------->| Browser | | | | | +-----------+ +-----------+

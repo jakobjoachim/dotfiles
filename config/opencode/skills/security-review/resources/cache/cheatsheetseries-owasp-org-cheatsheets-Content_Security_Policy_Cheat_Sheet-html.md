@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Content Security Policy - OWASP Cheat Sheet Series
+
+Extension Vulnerabilities Business Logic Security C-Based Toolchain Hardening CI CD Security Choosing and Using Security Questions Clickjacking Defense Content Security Policy Content Security Policy Table of contents Introduction Context Defense against XSS 1. Restricting Objects Defense against framing attacks Defense in Depth Policy Delivery 1. Content-Security-Policy-Report-Only Header 3. ility Disclosure Vulnerable Dependency Management WebSocket Security Web Service Security XML External Entity Prevention XML Security XSS Filter Evasion XS Leaks Zero Trust Architecture gRPC Security Table of contents Introduction Context Defense against XSS 1. Restricting Objects Defense against framing attacks Defense in Depth Policy Delivery 1. Content-Security-Policy-Report-Only Header 3. framing attacks (clickjacking, cross-site leaks) Refactoring inline code References Content Security Policy Cheat Sheet &para; Introduction &para; This article brings forth a way to integrate the defense in depth concept to the client-side of web applications. By injecting the Content-Security-Policy (CSP) headers from the server, the browser is aware and capable of protecting the user from dynamic calls that will load content into the page currently being visited. Context &para; The increase in XSS (Cross-Site Scripting), clickjacking, and cross-site leak vulnerabilities demands a more defense in depth security approach. Defense against XSS &para; CSP defends against XSS attacks in the following ways: 1.

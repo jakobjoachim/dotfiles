@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# REST Security - OWASP Cheat Sheet Series
+
+ handling Audit logs Security Headers CORS Sensitive information in HTTP requests HTTP Return Code REST Security Cheat Sheet &para; Introduction &para; REST (or RE presentational S tate T ransfer) is an architectural style first described in Roy Fielding 's Ph. State in the REST acronym refers to the state of the resource which the API accesses, not the state of a session within which the API is called. While there may be good reasons for building a stateful API, it is important to realize that managing sessions is complex and difficult to do securely. Stateful services are out of scope of this Cheat Sheet: Passing state from client to backend, while making the service technically stateless, is an anti-pattern that should also be avoided as it is prone to replay and impersonation attacks. Each of these REST calls is stateless and the endpoint should check whether the caller is authorized to perform the requested operation. This protects authentication credentials in transit, for example passwords, API keys or JSON Web Tokens. It also allows clients to authenticate the service and guarantees integrity of the transmitted data. See the Transport Layer Security Cheat Sheet for additional information. Consider the use of mutually authenticated client-side certificates to provide additional protection for highly privileged web services. Web services in monolithic applications implement this by means of user authentication, authorization logic and session management.

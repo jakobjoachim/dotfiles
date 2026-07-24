@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Input Validation - OWASP Cheat Sheet Series
+
+tion Disposable Email Addresses Sub-Addressing References Input Validation Cheat Sheet &para; Introduction &para; This article is focused on providing clear, simple, actionable guidance for providing Input Validation security functionality in your applications. f Input Validation &para; Input validation is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. Input validation should happen as early as possible in the data flow, preferably as soon as the data is received from the external party. ources should be subject to input validation, including not only Internet-facing web clients but also backend feeds over extranets, from suppliers, partners, vendors or regulators , each of which may be compromised on their own and start sending malformed data. Input Validation should not be used as the primary method of preventing XSS , SQL Injection and other attacks which are covered in respective cheat sheets but can significantly contribute to reducing their impact if implemented properly. Input Validation Strategies &para; Input validation should be applied at both syntactic and semantic levels: Syntactic validation should enforce correct syntax of structured fields (e. Semantic validation should enforce correctness of their values in the specific business context (e. It is always recommended to prevent attacks as early as possible in the processing of the user's (attacker's) request. Input validation

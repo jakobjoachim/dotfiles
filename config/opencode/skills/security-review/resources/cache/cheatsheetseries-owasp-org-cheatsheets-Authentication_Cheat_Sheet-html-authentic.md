@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#authentication-and-error-messages
+fetched: 2026-07-24
+---
+
+# Authentication - OWASP Cheat Sheet Series
+
+ creation Error Codes and URLs Protect Against Automated Attacks Multi-Factor Authentication Login Throttling Account Lockout CAPTCHA Security Questions and Memorable Words Logging and Monitoring Use of authentication protocols that require no password OAuth 2. creation Error Codes and URLs Protect Against Automated Attacks Multi-Factor Authentication Login Throttling Account Lockout CAPTCHA Security Questions and Memorable Words Logging and Monitoring Use of authentication protocols that require no password OAuth 2. ication ( AuthN ) is the process of verifying that an individual, entity, or website is who or what it claims to be by determining the validity of one or more authenticators (like passwords, fingerprints, or security tokens) that are used to back up this claim. Session Management is a process by which a server maintains the state of an entity interacting with it. Sessions are maintained on the server by a session identifier which can be passed back and forth between the client and server when transmitting and receiving requests. Sessions should be unique per user and computationally very difficult to predict. The Session Management Cheat Sheet contains further guidance on the best practices in this area. Authentication General Guidelines &para; User IDs &para; The primary function of a User ID is to uniquely identify a user within a system. Ideally, User IDs should be randomly generated to prevent the creation of predictable or sequential IDs, which could pose a

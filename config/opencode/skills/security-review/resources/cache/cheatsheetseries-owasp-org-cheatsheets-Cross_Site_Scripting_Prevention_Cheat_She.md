@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# Cross Site Scripting Prevention - OWASP Cheat Sheet Series
+
+S Problem 4 - Interceptors not effective where data from responses originates outside your application Summary Related Articles Cross Site Scripting Prevention Cheat Sheet &para; Introduction &para; This cheat sheet helps developers prevent XSS vulnerabilities. Cross-Site Scripting (XSS) is a misnomer. Originally this term was derived from early versions of the attack that were primarily focused on stealing data cross-site. XSS attacks are serious and can lead to account impersonation, observing user behaviour, loading external content, stealing sensitive data, and more. This cheatsheet contains techniques to prevent or limit the impact of XSS. Since no single technique will solve XSS, using the right combination of defensive techniques will be necessary to prevent XSS. Framework Security &para; Fortunately, applications built with modern web frameworks have fewer XSS bugs, because these frameworks steer developers towards good security practices and help mitigate XSS by using templating, auto-escaping, and more. s unsafeHTML function Polymer's inner-h-t-m-l attribute and htmlLiteral function Template injection Out of date framework plugins or components and more When you use a modern web framework, you need to know how your framework prevents XSS and where it has gaps. XSS Defense Philosophy &para; In order for an XSS attack to be successful, an attacker must be able to insert and execute malicious content in a webpage. Ensuring that all variables go through validation and are then escaped or sanitized is known as

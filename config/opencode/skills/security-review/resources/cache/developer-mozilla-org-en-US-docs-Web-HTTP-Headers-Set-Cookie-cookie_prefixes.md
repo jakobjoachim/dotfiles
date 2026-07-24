@@ -1,0 +1,8 @@
+---
+source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes
+fetched: 2026-07-24
+---
+
+# Set-Cookie header - HTTP | MDN
+
+Dark English (US) Remember language Learn more Deutsch English (US) Español Français 日本語 한국어 Português (do Brasil) Русский 中文 (简体) Set-Cookie header Baseline Widely available * This feature is well established and works across many devices and browser versions. Learn more See full compatibility The HTTP Set-Cookie response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later. To send multiple cookies, multiple Set-Cookie headers should be sent in the same response. Warning: Browsers block frontend JavaScript code from accessing the Set-Cookie header, as required by the Fetch spec, which defines Set-Cookie as a forbidden response header name that must be filtered out from any response exposed to frontend code. When a Fetch API or XMLHttpRequest API request uses CORS , browsers will ignore Set-Cookie headers present in the server's response unless the request includes credentials. For more information, see the guide on Using HTTP cookies . e-name>=<cookie-value>; SameSite=None; Secure // Multiple attributes are also possible, for example: Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnly Attributes <cookie-name>=<cookie-value> Defines the cookie name and its value. A cookie definition begins with a name-value pair. A <cookie-name> can contain any US-ASCII characters except for control characters ( ASCII characters 0 up to 31 and ASCII character 127) or separator characters (space, tab and the characters: ( ) < >

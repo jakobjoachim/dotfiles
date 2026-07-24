@@ -1,0 +1,8 @@
+---
+source: https://www.rfc-editor.org/info/rfc8825
+fetched: 2026-07-24
+---
+
+# RFC 8825: Overview: Real-Time Protocols for Browser-Based Applications | RFC Editor
+
+r reading RFCs Browse all RFCs Download RFCs Errata in RFCs FAQ For Authors How to write an RFC Independent Submissions Style Guide RFC Publication Process Document Queue About Us About RFC Editor Reports Privacy Statement Contact The RFC Series What is an RFC? bmissions Style Guide RFC Publication Process Document Queue About Us About RFC Editor Reports Privacy Statement Contact Search Your preferences Theme RFC Info pages Home RFC 8825 Info RFC   8825 : Overview: Real-Time Protocols for Browser-Based Applications H. ¶ This document is an applicability statement -- it does not itself specify any protocol, but it specifies which other specifications implementations are supposed to follow to be compliant with Web Real-Time Communication (WebRTC). ¶ Copyright Notice Copyright (c) 2021 IETF Trust and the persons identified as the document authors. The resulting protocol suite is intended to enable all the applications that are described as required scenarios in the WebRTC "use cases" document [ RFC7478 ] . ¶ Other efforts -- for instance, the W3C Web Real-Time Communications, Web Applications Security, and Devices and Sensors Working Groups -- focus on making standardized APIs and interfaces available, within or alongside the HTML5 effort, for those functions. ¶ Operators should note that deployment of WebRTC will result in a change in the nature of signaling for real-time media on the network and may result in a shift in the

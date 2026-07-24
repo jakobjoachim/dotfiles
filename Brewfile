@@ -16,6 +16,9 @@ if OS.mac?
     # raycast
     cask "raycast"
 
+    # automation
+    cask "hammerspoon" # macOS automation, used for trackpad gestures
+
     # Fonts
     cask "font-fira-code"
     cask "font-jetbrains-mono"

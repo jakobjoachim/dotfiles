@@ -189,6 +189,10 @@ setup_macos() {
         echo "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
         defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+        echo "Disable macOS Ctrl+Left/Right Space switching shortcuts"
+        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 '{ enabled = 0; value = { parameters = (65535, 123, 8650752); type = standard; }; }'
+        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 '{ enabled = 0; value = { parameters = (65535, 124, 8650752); type = standard; }; }'
+
         echo "Enable subpixel font rendering on non-Apple LCDs"
         defaults write NSGlobalDomain AppleFontSmoothing -int 2
 

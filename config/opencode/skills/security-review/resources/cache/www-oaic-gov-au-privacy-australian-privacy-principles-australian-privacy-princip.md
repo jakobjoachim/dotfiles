@@ -1,0 +1,8 @@
+---
+source: https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-11-app-11-security-of-personal-information
+fetched: 2026-07-24
+---
+
+# Chapter 11: APP 11 Security of personal information | OAIC
+
+Chapter 11: APP 11 Security of personal information | OAIC We use cookies on this site We use cookies to analyse traffic and to improve your browsing experience on our website. To find out more, read our privacy policy . Download chapter 11 of the APP Guidelines Chapter 11: Security of personal information - v1. F, 261 KB) Updated: 03 October 2025 Key points An APP entity must take such steps as are reasonable in the circumstances to protect the personal information it holds from misuse, interference and loss, as well as unauthorised access, modification or disclosure. 1 APP 11 requires an APP entity to take active measures to ensure the security of personal information it holds, and to actively consider whether it is permitted to retain personal information. 2 An APP entity that holds personal information must take reasonable steps to protect the information from misuse, interference and loss, as well as unauthorised access, modification or disclosure (APP 11. 4 The reasonable steps an APP entity must take, for the purposes of ensuring the security of personal information and destroying or de-identifying personal information that is no longer needed, include technical and organisational measures (APP 11. An entity holds personal information &lsquo;if the entity has possession or control of a record that contains the personal information&rsquo; (s 6(1)). 6 The term &lsquo;holds&rsquo; extends beyond physical possession of a record

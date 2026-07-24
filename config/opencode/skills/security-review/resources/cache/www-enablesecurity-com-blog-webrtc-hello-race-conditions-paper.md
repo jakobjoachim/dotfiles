@@ -1,0 +1,8 @@
+---
+source: https://www.enablesecurity.com/blog/webrtc-hello-race-conditions-paper/
+fetched: 2026-07-24
+---
+
+# New White Paper: DTLS "ClientHello" Race Conditions in WebRTC Implementations &ndash; Enable Security
+
+ementations Published on Oct 15, 2024 in denial of service , freeswitch , webrtc security , asterisk We&rsquo;re excited to announce the release of our latest white paper, &ldquo; DTLS &lsquo;ClientHello&rsquo; Race Conditions in WebRTC Implementations&rdquo; . This comprehensive study delves into a critical vulnerability affecting various WebRTC implementations, with potential implications for real-time communication security. Our research team at Enable Security conducted extensive testing on both open-source and proprietary WebRTC implementations, focusing on media servers and popular communication platforms. The study aimed to identify vulnerabilities related to the processing of DTLS ClientHello messages in WebRTC sessions. We discovered that the core issue lies in the failure to properly verify the origin of the DTLS &ldquo;ClientHello&rdquo; message, which could lead to denial of service attacks. Importantly, our research highlights that while this behavior doesn&rsquo;t necessarily indicate a bug in the WebRTC specification itself, it reveals a critical oversight that multiple implementors have failed to address. We believe this research contributes significantly to the ongoing efforts to enhance WebRTC security across the industry. Subscribe to Updates Stay updated with our latest security insights and updates. Monthly RTCSec Newsletter Blog Notifications We hate spam and are committed to protecting and respecting your privacy. By subscribing, you are agreeing to the Privacy Policy .

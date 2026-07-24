@@ -1,0 +1,8 @@
+---
+source: https://owasp.org/www-project-automated-threats-to-web-applications/
+fetched: 2026-07-24
+---
+
+# OWASP Automated Threats to Web Applications | OWASP Foundation
+
+ Store Donate Join This website uses cookies to analyze our traffic and only share that information with our analytics partners. The initial objective was to produce an ontology providing a common language for developers, architects, operators, business owners, security engineers, purchasers and suppliers/ vendors, to facilitate clear communication and help tackle the issues. Without sharing a common language between devops, architects, business owners, security engineers, purchasers and suppliers/vendors, everyone has to make extra effort to communicate clearly. The adverse impacts affect the privacy and security of individuals as well as the security of the applications and related system components. Inventory OAT-015 Denial of Service OAT-006 Expediting OAT-004 Fingerprinting OAT-018 Footprinting OAT-005 Scalping OAT-011 Scraping OAT-016 Skewing OAT-013 Sniping OAT-017 Spamming OAT-002 Token Cracking OAT-014 Vulnerability Scanning Not sure which is which? It is not that the latter are not the target for attacks, but there is much more knowledge published in that area with a greater agreement on terminology. An attack that can be achieved without the web is out of scope. An attack that can be achieved without the web is out of scope. Defining application development security requirements Cinnaminta SpA intends to build and launch a new multi-lingual and multi-currency ecommerce website. Among many other requirements, the application security specification requires that the website must not include any vulnerabilities identified in PCI DSS Requirements, nor any other

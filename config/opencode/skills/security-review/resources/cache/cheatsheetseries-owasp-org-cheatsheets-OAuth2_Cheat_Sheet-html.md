@@ -1,0 +1,8 @@
+---
+source: https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html
+fetched: 2026-07-24
+---
+
+# OAuth2 - OWASP Cheat Sheet Series
+
+vices Security Microservices based Security Arch Doc Mobile Application Security Multi Tenant Security Multifactor Authentication NPM Security Network Segmentation NoSQL Security NodeJS Docker Nodejs Security OAuth2 OAuth2 Table of contents Terminology OAuth 2. rtual Patching Vulnerability Disclosure Vulnerable Dependency Management WebSocket Security Web Service Security XML External Entity Prevention XML Security XSS Filter Evasion XS Leaks Zero Trust Architecture gRPC Security Table of contents Terminology OAuth 2. xchange Mechanism Implicit Grant (DEPRECATED — DO NOT USE) Token Replay Prevention PoP Mechanisms Comparison When to Use PoP Tokens Access Token Privilege Restriction Resource Owner Password Credentials Grant Client Authentication Other Recommendations OAuth 2. 0 Protocol Cheatsheet &para; This cheatsheet describes the best current security practices for OAuth 2. OAuth became the standard for API protection and the basis for federated login using OpenID Connect. 0 is a simple identity layer on top of the OAuth 2. It enables clients to verify the identity of the end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. 0 supports different token types to address various security and implementation requirements. Bearer tokens (RFC 6750) provide simplicity and broad adoption. Proof of Possession (PoP) tokens offer advanced security through cryptographic binding between tokens and clients.

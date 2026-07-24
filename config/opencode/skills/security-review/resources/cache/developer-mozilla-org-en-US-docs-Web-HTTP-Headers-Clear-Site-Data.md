@@ -1,0 +1,8 @@
+---
+source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
+fetched: 2026-07-24
+---
+
+# Clear-Site-Data header - HTTP | MDN
+
+ default Light Dark English (US) Remember language Learn more Deutsch English (US) Français 日本語 Português (do Brasil) 中文 (简体) Clear-Site-Data header Baseline Widely available * This feature is well established and works across many devices and browser versions. The HTTP Clear-Site-Data response header sends a signal to the client that it should remove all browsing data of certain types (cookies, storage, cache) associated with the requesting website. ibility See also Syntax http // Single directive Clear-Site-Data: "cache" // Multiple directives (comma separated) Clear-Site-Data: "cache", "cookies" // Wild card Clear-Site-Data: "*" Directives Note: All directives must comply with the quoted-string grammar . Note: In browsers that support the "clientHints" data type, client hints are also cleared when the "cache" , "cookies" , or "*" types are specified. "cookies" The server signals that the client should remove all cookies for the origin of the response URL. HTTP authentication credentials are also cleared out. clear ), sessionStorage (executes sessionStorage. If more data types are added in future versions of this header, they will also be covered by it. To do this, add the Clear-Site-Data header to the page that confirms the logging out from the site has been accomplished successfully ( https://example. com/logout , for example): http Clear-Site-Data: "cache", "cookies", "storage", "executionContexts", "prefetchCache", "prerenderCache" Clearing cookies If this header is delivered with the response at https://example.
