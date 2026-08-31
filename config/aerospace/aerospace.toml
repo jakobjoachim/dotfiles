@@ -50,16 +50,15 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config option is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
-                         "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
-                         "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+persistent-workspaces = ["Teams", "Outlook", "Arc", "IntelliJ", "VSCode"]
+
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 on-mode-changed = []
 
-focus-follows-mouse.enabled = true
+focus-follows-mouse.enabled = false
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -79,6 +78,51 @@ gaps.outer.left =       0
 gaps.outer.bottom =     0
 gaps.outer.top =        0
 gaps.outer.right =      0
+
+on-window-detected = [
+  {
+    if = 'test %{app-bundle-id} = company.thebrowser.Browser',
+    run = 'move-node-to-workspace Arc',
+  },
+  {
+    if = 'test %{app-bundle-id} = com.jetbrains.intellij || test %{app-bundle-id} = com.jetbrains.intellij.ce',
+    run = '''exec-and-forget
+intellij_windows="$(
+  aerospace list-windows --workspace IntelliJ --app-bundle-id com.jetbrains.intellij --count
+)"
+intellij_ce_windows="$(
+  aerospace list-windows --workspace IntelliJ --app-bundle-id com.jetbrains.intellij.ce --count
+)"
+
+if [[ "$intellij_windows" = "0" && "$intellij_ce_windows" = "0" ]]; then
+  aerospace move-node-to-workspace --window-id "$AEROSPACE_WINDOW_ID" IntelliJ
+fi
+''',
+  },
+  {
+    if = 'test %{app-bundle-id} = com.microsoft.Outlook',
+    run = 'move-node-to-workspace Outlook',
+  },
+  {
+    if = 'test %{app-bundle-id} = com.microsoft.teams2 || test %{app-bundle-id} = com.microsoft.teams',
+    run = '''exec-and-forget
+teams_windows="$(
+  aerospace list-windows --workspace Teams --app-bundle-id com.microsoft.teams2 --count
+)"
+classic_teams_windows="$(
+  aerospace list-windows --workspace Teams --app-bundle-id com.microsoft.teams --count
+)"
+
+if [[ "$teams_windows" = "0" && "$classic_teams_windows" = "0" ]]; then
+  aerospace move-node-to-workspace --window-id "$AEROSPACE_WINDOW_ID" Teams
+fi
+''',
+  },
+  {
+    if = 'test %{app-bundle-id} = com.microsoft.VSCode || test %{app-bundle-id} = com.microsoft.VSCodeInsiders',
+    run = 'move-node-to-workspace VSCode',
+  },
+]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -132,71 +176,16 @@ gaps.outer.right =      0
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     ctrl-left = 'list-workspaces --monitor focused --empty no | workspace --wrap-around --stdin prev'
     ctrl-right = 'list-workspaces --monitor focused --empty no | workspace --wrap-around --stdin next'
+    alt-shift-n = '''exec-and-forget
+used_workspaces="$(aerospace list-workspaces --all)"
 
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-    alt-b = 'workspace B'
-    alt-c = 'workspace C'
-    alt-d = 'workspace D'
-    alt-e = 'workspace E'
-    alt-f = 'workspace F'
-    alt-g = 'workspace G'
-    alt-i = 'workspace I'
-    alt-m = 'workspace M'
-    alt-n = 'workspace N'
-    alt-o = 'workspace O'
-    alt-p = 'workspace P'
-    alt-q = 'workspace Q'
-    alt-r = 'workspace R'
-    alt-s = 'workspace S'
-    alt-t = 'workspace T'
-    alt-u = 'workspace U'
-    alt-v = 'workspace V'
-    alt-w = 'workspace W'
-    alt-x = 'workspace X'
-    alt-y = 'workspace Y'
-    alt-z = 'workspace Z'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-a = 'move-node-to-workspace A'
-    alt-shift-b = 'move-node-to-workspace B'
-    alt-shift-c = 'move-node-to-workspace C'
-    alt-shift-d = 'move-node-to-workspace D'
-    alt-shift-e = 'move-node-to-workspace E'
-    alt-shift-f = 'move-node-to-workspace F'
-    alt-shift-g = 'move-node-to-workspace G'
-    alt-shift-i = 'move-node-to-workspace I'
-    alt-shift-m = 'move-node-to-workspace M'
-    alt-shift-n = 'move-node-to-workspace N'
-    alt-shift-o = 'move-node-to-workspace O'
-    alt-shift-p = 'move-node-to-workspace P'
-    alt-shift-q = 'move-node-to-workspace Q'
-    alt-shift-r = 'move-node-to-workspace R'
-    alt-shift-s = 'move-node-to-workspace S'
-    alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-u = 'move-node-to-workspace U'
-    alt-shift-v = 'move-node-to-workspace V'
-    alt-shift-w = 'move-node-to-workspace W'
-    alt-shift-x = 'move-node-to-workspace X'
-    alt-shift-y = 'move-node-to-workspace Y'
-    alt-shift-z = 'move-node-to-workspace Z'
+for next_workspace in {1..99}; do
+  if ! grep -Fxq "$next_workspace" <<< "$used_workspaces"; then
+    aerospace move-node-to-workspace --focus-follows-window "$next_workspace"
+    break
+  fi
+done
+'''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'

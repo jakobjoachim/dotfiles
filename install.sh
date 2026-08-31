@@ -167,6 +167,25 @@ setup_shell() {
     fi
 }
 
+disable_symbolic_hotkey() {
+    local hotkey_id="$1"
+    local key_code="$2"
+    local plist="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
+
+    defaults read com.apple.symbolichotkeys AppleSymbolicHotKeys >/dev/null 2>&1 || \
+        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict
+
+    /usr/libexec/PlistBuddy -c "Delete :AppleSymbolicHotKeys:$hotkey_id" "$plist" >/dev/null 2>&1
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id dict" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:enabled bool false" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value dict" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value:parameters array" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value:parameters:0 integer 65535" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value:parameters:1 integer $key_code" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value:parameters:2 integer 8650752" "$plist"
+    /usr/libexec/PlistBuddy -c "Add :AppleSymbolicHotKeys:$hotkey_id:value:type string standard" "$plist"
+}
+
 setup_macos() {
     title "Configuring macOS"
     if [[ "$(uname)" == "Darwin" ]]; then
@@ -190,8 +209,8 @@ setup_macos() {
         defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
         echo "Disable macOS Ctrl+Left/Right Space switching shortcuts"
-        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 '{ enabled = 0; value = { parameters = (65535, 123, 8650752); type = standard; }; }'
-        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 '{ enabled = 0; value = { parameters = (65535, 124, 8650752); type = standard; }; }'
+        disable_symbolic_hotkey 79 123
+        disable_symbolic_hotkey 81 124
 
         echo "Enable subpixel font rendering on non-Apple LCDs"
         defaults write NSGlobalDomain AppleFontSmoothing -int 2
@@ -213,7 +232,7 @@ setup_macos() {
 
         echo "Kill affected applications"
 
-        for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
+        for app in Safari Finder Dock Mail SystemUIServer cfprefsd; do killall "$app" >/dev/null 2>&1; done
     else
         warning "macOS not detected. Skipping."
     fi
