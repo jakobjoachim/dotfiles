@@ -15,6 +15,9 @@
       }
     }
   },
+  "permission": {
+    "docker_hub_versions": "deny"
+  },
   "mcp": {
     "gitlab-mr": {
       "type": "local",
@@ -37,7 +40,7 @@
     "Astro docs": {
       "type": "remote",
       "url": "https://mcp.docs.astro.build/mcp",
-      "enabled": true
+      "enabled": false
     },
   }
 }
