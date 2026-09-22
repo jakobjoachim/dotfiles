@@ -344,6 +344,8 @@ _kubeconfig_wrapper_current_context() {
 }
 
 _kubeconfig_wrapper_run() {
+    # Noninteractive launchers may omit Homebrew from their inherited PATH.
+    local -x PATH="/opt/homebrew/bin:/usr/local/bin:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
     local command_name="$1"
     local wrapper_input_path="$2"
     shift 2
